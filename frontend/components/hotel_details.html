@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Sphere</title>
+
+    <!-- 
+    - favicon
+  -->
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+    <!-- 
+    - custom css link
+  -->
+    <link rel="stylesheet" href="hotel_details.css">
+
+    <!-- 
+    - google font link
+  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+
+</head>
+
+<body>
+
+    <!-- 
+       #HEADER
+    -->
+
+
+    <header class="header">
+
+        <div class="overlay"></div>
+
+
+        <div class="header-bottom list-header-bottom">
+            <div class="container">
+
+                <ul class="social-list">
+
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-facebook"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-twitter"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-youtube"></ion-icon>
+                        </a>
+                    </li>
+
+                </ul>
+
+                <nav class="navbar">
+
+                    <div class="navbar-top">
+
+                        <a href="#" class="logo">
+                            <img src="./assets/images/logo-blue.svg" alt="Tourly logo">
+                        </a>
+
+                        <button class="nav-close-btn" aria-label="Close Menu">
+                            <ion-icon name="close-outline"></ion-icon>
+                        </button>
+
+                    </div>
+
+                    <ul class="navbar-list">
+
+                        <li>
+                            <a href="../index.html" class="navbar-link">home</a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="navbar-link">about us</a>
+                        </li>
+
+                        <li>
+                            <a href="#destination" class="navbar-link">destination</a>
+                        </li>
+
+                        <li>
+                            <a href="#package" class="navbar-link">packages</a>
+                        </li>
+
+                        <li>
+                            <a href="#gallery" class="navbar-link">gallery</a>
+                        </li>
+
+                        <li>
+                            <a href="#contact" class="navbar-link">contact us</a>
+                        </li>
+
+                    </ul>
+
+                </nav>
+
+                <button class="btn btn-primary">Book Now</button>
+
+                <button class="nav-open-btn" aria-label="Open Menu">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </button>
+
+            </div>
+        </div>
+
+    </header>
+
+
+    <!-- 
+   - #HOTEL-LIST DETAILS
+ -->
+
+    <div class="hotel-details">
+        <div class="hotel-title">
+            <h1>Royal Tulip Sea Pearl Beach Resort</h1>
+
+            <div class="row">
+                <div>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <i class="far fa-star"></i>
+                    <span>13,772 Reviews</span>
+                </div>
+
+                <div>
+                    <p>Location: Jaliapalong, Inani, Ukhia, Cox's Bazar - 4750, Bangladesh.
+
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="gallery">
+            <div class="gallery-img1"> <img src="images/royal-tulip-sea_view.jpg"></div>
+            <div> <img src="images/royal-tulip-pool.jpg"></div>
+            <div> <img src="images/royal-tulip-living.jpg"></div>
+            <div> <img src="images/royal-tulip-room.jpg"></div>
+            <div> <img src="images/royal-tulip-pool2.jpg"></div>
+        </div>
+
+        <div class="small-details">
+            <h2>Entire rental unit hosted by Brandon</h2>
+            <p>Royal Family Suit &nbsp; &nbsp; 2 bedroom &nbsp; &nbsp; 2 bathroom &nbsp; &nbsp; 1 kitchen</p>
+            <h4>BDT 12,610 / day</h4>
+        </div>
+        <hr class="line">
+
+        <!-- 
+        # Booking Form 
+        -->
+
+        <form class="check-form" action="/book" method="POST">
+
+            <div class="form-row">
+                <label for="checkin">Check-in Date</label>
+                <input type="date" name="checkin" id="checkin" required>
+            </div>
+
+            <div class="form-row">
+                <label for="checkout">Check-out Date</label>
+                <input type="date" name="checkout" id="checkout" required>
+            </div>
+
+            <div class="form-row dropdown">
+
+                <label for="guest-btn">Guests</label>
+                <button id="guest-btn" type="button">1 room, 2 adults, 0 children</button>
+
+                <div id="dropdown-content" class="dropdown-content">
+
+                    <div class="row">
+                        <span>Rooms</span>
+                        <button type="button" class="btn" onclick="updateValue('rooms', -1)">-</button>
+                        <span id="rooms">1</span>
+                        <button type="button" class="btn" onclick="updateValue('rooms', 1)">+</button>
+                    </div>
+
+                    <div class="row">
+                        <span>Adults</span>
+                        <button type="button" class="btn" onclick="updateValue('adults', -1)">-</button>
+                        <span id="adults">2</span>
+                        <button type="button" class="btn" onclick="updateValue('adults', 1)">+</button>
+                    </div>
+
+                    <div class="row">
+                        <span>Children</span>
+                        <button type="button" class="btn" onclick="updateValue('children', -1)">-</button>
+                        <span id="children">0</span>
+                        <button type="button" class="btn" onclick="updateValue('children', 1)">+</button>
+                    </div>
+
+                    <button type="button" id="update-btn" onclick="updateDropdown()">Update</button>
+
+                </div>
+            </div>
+
+
+            <!-- 
+            Hidden Select Inputs for Dropdown Values 
+           -->
+            <select name="rooms" id="hidden-rooms-select" style="display: none;">
+                <option value="1" selected>1</option>
+            </select>
+
+            <select name="adults" id="hidden-adults-select" style="display: none;">
+                <option value="2" selected>2</option>
+            </select>
+
+            <select name="children" id="hidden-children-select" style="display: none;">
+                <option value="0" selected>0</option>
+            </select>
+
+            <a href="car_rental.html">
+            <button type="submit" class="submit-btn" id="book-now-btn">Book Now</button>
+        </a>
+        </form>
+
+
+        <!-- 
+          #DETAILS
+           -->
+
+        <ul class="details-list">
+            <li><i class="fas fa-bed"></i> 2 Bedroom Suite <span>Spacious and luxurious room</span></li>
+            <li><i class="fas fa-calendar-day"></i> Available Dates <span>From 1st Feb to 10th Feb</span></li>
+            <li><i class="fas fa-utensils"></i> Complimentary Breakfast <span>Delicious meals included</span></li>
+        </ul>
+
+
+        <hr class="line">
+
+        <p class="hotel-desc">One luxury master bedroom and another children/guests bedroom, fitted with an
+            elegantly
+            decorated living
+            room, and kitchenette. Our 1050 sft. 2 bedrooms suites mirror the warmth of a Home away from Home
+            convenience.</p>
+        <hr class="line">
+
+        <!-- 
+        #MAP
+          -->
+        <div class="map">
+            <h3>Location on map</h3>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.408234230406!2d92.04631907471938!3d21.21565448133424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30addb98f90b08b7%3A0x6c678eda6bd69230!2z4Kaw4Kav4Ka84KeH4KayIOCmn-Cmv-CmieCmsuCmv-CmqiDgprjgp4Ag4Kaq4Ka-4Kaw4KeN4KayIOCmrOCmv-CmmiDgprDgpr_gprjgp4vgprDgp43gpp8!5e0!3m2!1sbn!2sbd!4v1736189910515!5m2!1sbn!2sbd"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            <b>Jaliapalong, Inani, Ukhia, Cox's Bazar - 4750, Bangladesh.</b>
+            <p>It's like a home away from home</p>
+
+            <hr class="line">
+
+        </div>
+    </div>
+
+
+
+    <!-- 
+    #FOOTER
+    -->
+
+    <footer class="footer">
+
+        <div class="footer-top">
+            <div class="container">
+
+                <div class="footer-brand">
+
+                    <a href="#" class="logo">
+                        <img src="./assets/images/logo.svg" alt="Tourly logo">
+                    </a>
+
+                    <p class="footer-text">
+                        Travel with us for unforgettable experiences and adventures.
+                        Explore unique destinations and curated packages just for you.
+                        Your journey begins here, and we’re here to guide every step of the way!
+                    </p>
+
+                </div>
+
+                <div class="footer-contact">
+
+                    <h4 class="contact-title">Contact Us</h4>
+
+                    <p class="contact-text">
+                        Feel free to contact and reach us !!
+                    </p>
+
+                    <ul>
+
+                        <li class="contact-item">
+                            <ion-icon name="call-outline"></ion-icon>
+
+                            <a href="tel:+01123456790" class="contact-link">+0123456790</a>
+                        </li>
+
+                        <li class="contact-item">
+                            <ion-icon name="mail-outline"></ion-icon>
+
+                            <a href="mailto:info.travel-sphere.com" class="contact-link">info.travel-sphere.com</a>
+                        </li>
+
+                        <li class="contact-item">
+                            <ion-icon name="location-outline"></ion-icon>
+
+                            <address>3146 Dhaka, Bangladesh</address>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="footer-form">
+
+                    <p class="form-text">
+                        Subscribe our newsletter for more update & news !!
+                    </p>
+
+                    <form action="" class="form-wrapper">
+                        <input type="email" name="email" class="input-field" placeholder="Enter Your Email" required>
+
+                        <button type="submit" class="btn btn-secondary">Subscribe</button>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+
+                <p class="copyright">
+                    &copy; 2022 <a href="">codewithsadee</a>. All rights reserved
+                </p>
+
+                <ul class="footer-bottom-list">
+
+                    <li>
+                        <a href="#" class="footer-bottom-link">Privacy Policy</a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="footer-bottom-link">Term & Condition</a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="footer-bottom-link">FAQ</a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+
+    </footer>
+
+
+
+
+
+    <!-- 
+- custom js link
+-->
+    <!-- <script src="./assets/js/script.js"></script> -->
+
+    <!-- 
+- ionicon link
+-->
+    <!-- <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script> -->
+
+
+    <!-- <script src="hotel_details.js">
+    </script> -->
+
+    <!-- Custom JS -->
+    <!-- <script src="assets/js/script.js"></script> -->
+
+    <!-- Ionicon Link -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <!-- Hotel Details JS -->
+    <!-- <script src="hotel_details.js"></script> -->
+
+    <!-- <script>
+        document.getElementById("book-now-btn").addEventListener("click", function(event) {
+            // Prevent form submission to check inputs first
+            event.preventDefault();
+            
+            // Log the values of check-in, check-out, rooms, adults, and children
+            console.log("Check-in Date:", document.getElementById("checkin").value);
+            console.log("Check-out Date:", document.getElementById("checkout").value);
+            console.log("Rooms:", document.getElementById("rooms").innerText);
+            console.log("Adults:", document.getElementById("adults").innerText);
+            console.log("Children:", document.getElementById("children").innerText);
+            
+            // Now, if everything is okay, you can submit the form
+            // Uncomment the next line to submit the form
+            // document.querySelector(".check-form").submit();
+        });
+    </script> -->
+    
+
+</body>
+
+</html>
