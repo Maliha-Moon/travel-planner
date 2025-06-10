@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Sphere - Trip Planner</title>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/trip-planner.css">
+</head>
+<body>
+    <!-- Include your existing header and navigation -->
+    <header class="header">
+        <!-- Your existing header content -->
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Include the trip planner section -->
+        <section class="trip-planner-section">
+            <div class="container">
+                <h2 class="section-title">Trip Planner</h2>
+                
+                <!-- Trip Creation Form -->
+                <div class="trip-form-container">
+                    <h3>Create New Trip</h3>
+                    <form id="tripForm" class="trip-form">
+                        <div class="form-group">
+                            <label for="tripTitle">Trip Title</label>
+                            <input type="text" id="tripTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tripDescription">Description</label>
+                            <textarea id="tripDescription" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="startDate">Start Date</label>
+                            <input type="date" id="startDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="endDate">End Date</label>
+                            <input type="date" id="endDate" required>
+                        </div>
+                        <button type="submit" class="btn-primary">Create Trip</button>
+                    </form>
+                </div>
+
+                <!-- Trip List -->
+                <div class="trip-list-container">
+                    <h3>My Trips</h3>
+                    <div id="tripList" class="trip-list">
+                        <!-- Trips will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="scripts/apiUtils.js"></script>
+    <script src="scripts/tripManager.js"></script>
+    <script src="scripts/tripPlannerUI.js"></script>
+</body>
+</html>

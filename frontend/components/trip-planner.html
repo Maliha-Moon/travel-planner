@@ -1,0 +1,94 @@
+<!-- Trip Planner Section -->
+<section class="trip-planner-section">
+    <div class="container">
+        <h2 class="section-title">Trip Planner</h2>
+        
+        <!-- Trip Creation Form -->
+        <div class="trip-form-container">
+            <h3>Create New Trip</h3>
+            <form id="tripForm" class="trip-form">
+                <div class="form-group">
+                    <label for="tripTitle">Trip Title</label>
+                    <input type="text" id="tripTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="tripDescription">Description</label>
+                    <textarea id="tripDescription" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="startDate">Start Date</label>
+                    <input type="date" id="startDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="endDate">End Date</label>
+                    <input type="date" id="endDate" required>
+                </div>
+                <button type="submit" class="btn-primary">Create Trip</button>
+            </form>
+        </div>
+
+        <!-- Trip List -->
+        <div class="trip-list-container">
+            <h3>My Trips</h3>
+            <div id="tripList" class="trip-list">
+                <!-- Trips will be dynamically inserted here -->
+            </div>
+        </div>
+
+        <!-- Trip Details Modal -->
+        <div id="tripDetailsModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3 id="tripTitleModal"></h3>
+                <div id="tripDetails"></div>
+                <div id="tripCost" class="trip-cost"></div>
+                
+                <!-- Destination Form -->
+                <div class="destination-form-container">
+                    <h4>Add Destination</h4>
+                    <form id="destinationForm" class="destination-form">
+                        <div class="form-group">
+                            <label for="destinationName">Destination Name</label>
+                            <input type="text" id="destinationName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="arrivalDate">Arrival Date</label>
+                            <input type="date" id="arrivalDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="departureDate">Departure Date</label>
+                            <input type="date" id="departureDate" required>
+                        </div>
+                        <button type="submit" class="btn-primary">Add Destination</button>
+                    </form>
+                </div>
+
+                <!-- Activity Form -->
+                <div class="activity-form-container">
+                    <h4>Add Activity</h4>
+                    <form id="activityForm" class="activity-form">
+                        <div class="form-group">
+                            <label for="activityName">Activity Name</label>
+                            <input type="text" id="activityName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="activityCategory">Category</label>
+                            <select id="activityCategory">
+                                <option value="sightseeing">Sightseeing</option>
+                                <option value="dining">Dining</option>
+                                <option value="transport">Transport</option>
+                                <option value="accommodation">Accommodation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="activityCost">Cost</label>
+                            <input type="number" id="activityCost" step="0.01">
+                        </div>
+                        <button type="submit" class="btn-primary">Add Activity</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

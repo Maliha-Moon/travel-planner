@@ -1,0 +1,154 @@
+.trip-planner-section {
+    padding: 4rem 0;
+    background: var(--background);
+}
+
+.trip-form-container, .trip-list-container {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.trip-form, .destination-form, .activity-form {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: var(--black-coral);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    padding: 0.75rem;
+    border: 1px solid var(--gainsboro);
+    border-radius: 8px;
+    font-family: var(--ff-poppins);
+}
+
+.trip-list {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.trip-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.trip-card:hover {
+    transform: translateY(-2px);
+}
+
+.trip-card h3 {
+    color: var(--united-nations-blue);
+    margin-bottom: 0.5rem;
+}
+
+.trip-card .trip-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    color: var(--spanish-gray);
+}
+
+.trip-card .trip-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.trip-card .btn-edit,
+.trip-card .btn-delete {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: var(--ff-poppins);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.trip-card .btn-edit {
+    background: var(--united-nations-blue);
+    color: white;
+}
+
+.trip-card .btn-delete {
+    background: var(--yale-blue);
+    color: white;
+}
+
+.trip-card .btn-edit:hover {
+    background: var(--bright-navy-blue);
+}
+
+.trip-card .btn-delete:hover {
+    background: var(--blue-ncs);
+}
+
+.trip-cost {
+    font-weight: 600;
+    color: var(--yale-blue);
+    margin-top: 1rem;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--white);
+    margin: 5% auto;
+    padding: 2rem;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 12px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--black-coral);
+}
+
+.close:hover {
+    color: var(--yale-blue);
+}
+
+/* Error Message Styles */
+.error-message {
+    background: var(--yale-blue);
+    color: white;
+    padding: 1rem;
+    border-radius: 6px;
+    margin: 1rem 0;
+    text-align: center;
+}
