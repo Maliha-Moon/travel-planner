@@ -1,0 +1,17 @@
+{
+  "name": "travel-sphere-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for Travel Sphere",
+  "scripts": {
+    "start": "live-server"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "currency-formatter": "^1.5.9",
+    "file-saver": "^2.0.5",
+    "loading-animations": "^1.0.0"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
