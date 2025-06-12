@@ -23,6 +23,140 @@ exports.createTrip = async (req, res) => {
     }
 };
 
+// Add destination to a trip
+exports.addDestination = async (req, res) => {
+    try {
+        const trip = await Trip.findById(req.params.tripId);
+        if (!trip) {
+            return res.status(404).json({ message: 'Trip not found' });
+        }
+
+        // Check if user owns the trip
+        if (trip.userId.toString() !== req.user.id) {
+            return res.status(403).json({ message: 'Unauthorized access' });
+        }
+
+        const destination = {
+            ...req.body,
+            activities: []
+        };
+        trip.destinations.push(destination);
+        await trip.save();
+
+        res.status(201).json({
+            message: 'Destination added successfully',
+            destination: destination
+        });
+    } catch (error) {
+        res.status(500).json({
+            message: 'Error adding destination',
+            error: error.message
+        });
+    }
+};
+
+// Get all destinations for a trip
+exports.getDestinations = async (req, res) => {
+    try {
+        const trip = await Trip.findById(req.params.tripId);
+        if (!trip) {
+            return res.status(404).json({ message: 'Trip not found' });
+        }
+
+        res.json({
+            destinations: trip.destinations
+        });
+    } catch (error) {
+        res.status(500).json({
+            message: 'Error fetching destinations',
+            error: error.message
+        });
+    }
+};
+
+// Add expense to a trip
+exports.addExpense = async (req, res) => {
+    try {
+        const trip = await Trip.findById(req.params.tripId);
+        if (!trip) {
+            return res.status(404).json({ message: 'Trip not found' });
+        }
+
+        // Check if user owns the trip
+        if (trip.userId.toString() !== req.user.id) {
+            return res.status(403).json({ message: 'Unauthorized access' });
+        }
+
+        const expense = {
+            ...req.body,
+            timestamp: new Date()
+        };
+        trip.expenses.push(expense);
+        await trip.save();
+
+        res.status(201).json({
+            message: 'Expense added successfully',
+            expense: expense
+        });
+    } catch (error) {
+        res.status(500).json({
+            message: 'Error adding expense',
+            error: error.message
+        });
+    }
+};
+
+// Add document to a trip
+exports.addDocument = async (req, res) => {
+    try {
+        const trip = await Trip.findById(req.params.tripId);
+        if (!trip) {
+            return res.status(404).json({ message: 'Trip not found' });
+        }
+
+        // Check if user owns the trip
+        if (trip.userId.toString() !== req.user.id) {
+            return res.status(403).json({ message: 'Unauthorized access' });
+        }
+
+        const document = {
+            ...req.body,
+            uploadedAt: new Date()
+        };
+        trip.documents.push(document);
+        await trip.save();
+
+        res.status(201).json({
+            message: 'Document added successfully',
+            document: document
+        });
+    } catch (error) {
+        res.status(500).json({
+            message: 'Error adding document',
+            error: error.message
+        });
+    }
+};
+
+// Get all documents for a trip
+exports.getDocuments = async (req, res) => {
+    try {
+        const trip = await Trip.findById(req.params.tripId);
+        if (!trip) {
+            return res.status(404).json({ message: 'Trip not found' });
+        }
+
+        res.json({
+            documents: trip.documents
+        });
+    } catch (error) {
+        res.status(500).json({
+            message: 'Error fetching documents',
+            error: error.message
+        });
+    }
+};
+
 // Get all trips for a user
 exports.getTrips = async (req, res) => {
     try {
