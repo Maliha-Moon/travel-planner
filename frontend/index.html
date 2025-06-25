@@ -30,24 +30,102 @@
             <div class="container">
                 <h2 class="section-title">Trip Planner</h2>
                 
-                <!-- Trip Creation Form -->
-                <div class="trip-form-container">
-                    <h3>Create New Trip</h3>
-                    <form id="tripForm" class="trip-form">
-                        <div class="form-group">
-                            <label for="tripTitle">Trip Title</label>
-                            <input type="text" id="tripTitle" required>
+                <!-- Trip Management Section -->
+                <div class="trip-management-container">
+                    <!-- Trip List -->
+                    <div class="trip-list-section">
+                        <h3>My Trips</h3>
+                        <div class="trip-list">
+                            <!-- Trips will be populated here -->
                         </div>
-                        <div class="form-group">
-                            <label for="tripDescription">Description</label>
-                            <textarea id="tripDescription" rows="3"></textarea>
+                    </div>
+
+                    <!-- Trip Details -->
+                    <div class="trip-details-section">
+                        <div class="trip-header">
+                            <h2 id="tripTitle"></h2>
+                            <div class="trip-actions">
+                                <button id="editTripBtn" class="btn btn-primary">Edit Trip</button>
+                                <button id="saveTripBtn" class="btn btn-success" style="display: none;">Save Changes</button>
+                                <button id="cancelEditBtn" class="btn btn-secondary" style="display: none;">Cancel</button>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="startDate">Start Date</label>
-                            <input type="date" id="startDate" required>
+                        
+                        <div class="trip-status">
+                            <span id="tripStatus" class="status-planning">Planning</span>
                         </div>
-                        <div class="form-group">
-                            <label for="endDate">End Date</label>
+                        
+                        <div class="trip-dates">
+                            <span id="startDate"></span> - <span id="endDate"></span>
+                        </div>
+                        
+                        <div class="trip-description">
+                            <p id="tripDescription"></p>
+                        </div>
+
+                        <!-- Tabs for different sections -->
+                        <div class="trip-tabs">
+                            <button class="tab-btn active" data-tab="destinations">Destinations</button>
+                            <button class="tab-btn" data-tab="expenses">Expenses</button>
+                            <button class="tab-btn" data-tab="documents">Documents</button>
+                            <button class="tab-btn" data-tab="weather">Weather</button>
+                        </div>
+
+                        <!-- Tab Content -->
+                        <div class="tab-content active" id="destinations">
+                            <div class="destinations-list"></div>
+                            <button id="addDestinationBtn" class="btn btn-primary">Add Destination</button>
+                        </div>
+
+                        <div class="tab-content" id="expenses">
+                            <div class="expenses-list"></div>
+                            <form id="addExpenseForm" class="expense-form">
+                                <div class="form-group">
+                                    <label for="expenseCategory">Category</label>
+                                    <select id="expenseCategory" required>
+                                        <option value="accommodation">Accommodation</option>
+                                        <option value="transport">Transport</option>
+                                        <option value="food">Food</option>
+                                        <option value="activities">Activities</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="expenseAmount">Amount</label>
+                                    <input type="number" id="expenseAmount" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="expenseDescription">Description</label>
+                                    <input type="text" id="expenseDescription">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Add Expense</button>
+                            </form>
+                        </div>
+
+                        <div class="tab-content" id="documents">
+                            <div class="documents-list"></div>
+                            <form id="addDocumentForm" class="document-form">
+                                <div class="form-group">
+                                    <label for="documentTitle">Title</label>
+                                    <input type="text" id="documentTitle" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="documentType">Type</label>
+                                    <input type="text" id="documentType" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="documentUrl">File URL</label>
+                                    <input type="url" id="documentUrl" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Add Document</button>
+                            </form>
+                        </div>
+
+                        <div class="tab-content" id="weather">
+                            <div class="weather-info"></div>
+                        </div>
+                    </div>
+                </div>
                             <input type="date" id="endDate" required>
                         </div>
                         <button type="submit" class="btn-primary">Create Trip</button>

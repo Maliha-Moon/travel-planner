@@ -5,15 +5,44 @@ const api = new ApiClient();
 const tripTitle = document.getElementById('tripTitle');
 const tripStatus = document.getElementById('tripStatus');
 const tripDates = document.getElementById('tripDates');
-const destinationsList = document.getElementById('destinationsList');
-const addDestinationBtn = document.getElementById('addDestinationBtn');
-const addExpenseForm = document.getElementById('addExpenseForm');
-const documentsList = document.getElementById('documentsList');
-const weatherInfo = document.getElementById('weatherInfo');
+const tripDescription = document.getElementById('tripDescription');
+const destinationsList = document.querySelector('.destinations-list');
+const expensesList = document.querySelector('.expenses-list');
+const documentsList = document.querySelector('.documents-list');
+const weatherInfo = document.querySelector('.weather-info');
+
+// Edit controls
+const editTripBtn = document.getElementById('editTripBtn');
+const saveTripBtn = document.getElementById('saveTripBtn');
+const cancelEditBtn = document.getElementById('cancelEditBtn');
+
+// Editable elements
+const editableElements = {
+    title: document.createElement('input'),
+    description: document.createElement('textarea'),
+    startDate: document.createElement('input'),
+    endDate: document.createElement('input'),
+    status: document.createElement('select')
+};
 
 // URL Parameters
 const urlParams = new URLSearchParams(window.location.search);
 const tripId = urlParams.get('id');
+
+// Initialize status select options
+editableElements.status.innerHTML = `
+    <option value="planning">Planning</option>
+    <option value="active">Active</option>
+    <option value="completed">Completed</option>
+`;
+editableElements.startDate.type = 'date';
+editableElements.endDate.type = 'date';
+editableElements.description.rows = 3;
+
+// Event listeners for edit controls
+editTripBtn.addEventListener('click', toggleEditMode);
+saveTripBtn.addEventListener('click', saveTripChanges);
+cancelEditBtn.addEventListener('click', toggleEditMode);
 
 // Initialize tabs
 const tabBtns = document.querySelectorAll('.tab-btn');
@@ -45,6 +74,14 @@ async function loadTripDetails() {
         tripStatus.textContent = trip.status.charAt(0).toUpperCase() + trip.status.slice(1);
         tripStatus.classList.add(`status-${trip.status}`);
         tripDates.textContent = `${new Date(trip.startDate).toLocaleDateString()} - ${new Date(trip.endDate).toLocaleDateString()}`;
+        tripDescription.textContent = trip.description || '';
+        
+        // Initialize editable elements
+        editableElements.title.value = trip.title;
+        editableElements.description.value = trip.description || '';
+        editableElements.startDate.value = trip.startDate;
+        editableElements.endDate.value = trip.endDate;
+        editableElements.status.value = trip.status;
         
         // Render destinations
         renderDestinations(trip.destinations);
@@ -54,6 +91,63 @@ async function loadTripDetails() {
     } catch (error) {
         console.error('Error loading trip details:', error);
         showError('Failed to load trip details');
+    }
+}
+
+// Toggle edit mode
+function toggleEditMode() {
+    const isEditMode = editTripBtn.style.display === 'none';
+    
+    // Toggle visibility of buttons
+    editTripBtn.style.display = isEditMode ? 'block' : 'none';
+    saveTripBtn.style.display = isEditMode ? 'none' : 'block';
+    cancelEditBtn.style.display = isEditMode ? 'none' : 'block';
+    
+    // Toggle editable elements
+    const elements = [tripTitle, tripDescription, tripDates, tripStatus];
+    elements.forEach(element => {
+        if (isEditMode) {
+            if (element.id === 'tripTitle') {
+                element.parentNode.insertBefore(editableElements.title, element);
+            } else if (element.id === 'tripDescription') {
+                element.parentNode.insertBefore(editableElements.description, element);
+            } else if (element.id === 'tripDates') {
+                const datesContainer = element.parentNode;
+                datesContainer.insertBefore(editableElements.startDate, element);
+                datesContainer.insertBefore(editableElements.endDate, element);
+            } else if (element.id === 'tripStatus') {
+                element.parentNode.insertBefore(editableElements.status, element);
+            }
+            element.style.display = 'none';
+        } else {
+            element.style.display = 'block';
+            // Remove editable elements
+            editableElements.title.remove();
+            editableElements.description.remove();
+            editableElements.startDate.remove();
+            editableElements.endDate.remove();
+            editableElements.status.remove();
+        }
+    });
+}
+
+// Save trip changes
+async function saveTripChanges() {
+    try {
+        const tripData = {
+            title: editableElements.title.value,
+            description: editableElements.description.value,
+            startDate: editableElements.startDate.value,
+            endDate: editableElements.endDate.value,
+            status: editableElements.status.value
+        };
+        
+        await api.put(`/api/trips/${tripId}`, tripData);
+        await loadTripDetails();
+        toggleEditMode();
+    } catch (error) {
+        console.error('Error saving trip changes:', error);
+        showError('Failed to save trip changes');
     }
 }
 
