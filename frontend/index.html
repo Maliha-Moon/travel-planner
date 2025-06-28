@@ -16,6 +16,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/trip-planner.css">
+    <link rel="stylesheet" href="styles/activities.css">
 </head>
 <body>
     <!-- Include your existing header and navigation -->
@@ -48,6 +49,23 @@
                                 <button id="editTripBtn" class="btn btn-primary">Edit Trip</button>
                                 <button id="saveTripBtn" class="btn btn-success" style="display: none;">Save Changes</button>
                                 <button id="cancelEditBtn" class="btn btn-secondary" style="display: none;">Cancel</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Activities Section -->
+                        <div class="activities-section">
+                            <div class="section-header">
+                                <h3>Activities</h3>
+                                <button id="addActivityBtn" class="btn btn-primary">
+                                    <i class="fas fa-plus"></i> Add Activity
+                                </button>
+                            </div>
+                            
+                            <!-- Activity List -->
+                            <div id="activityList" class="activity-list">
+                                <!-- Activities will be populated here -->
+                            </div>
+                        </div>
                             </div>
                         </div>
                         
@@ -146,6 +164,57 @@
     <!-- Scripts -->
     <script src="scripts/apiUtils.js"></script>
     <script src="scripts/tripManager.js"></script>
+    <script src="scripts/activityManager.js"></script>
     <script src="scripts/tripPlannerUI.js"></script>
+    <!-- Activity Modal -->
+    <div id="activityModal" class="activity-modal">
+        <div class="activity-modal-content">
+            <h2>Add Activity</h2>
+            <form id="activityForm" class="activity-form">
+                <div class="activity-form-group">
+                    <label for="activityName">Activity Name</label>
+                    <input type="text" id="activityName" name="name" required>
+                </div>
+                <div class="activity-form-group">
+                    <label for="activityDescription">Description</label>
+                    <textarea id="activityDescription" name="description"></textarea>
+                </div>
+                <div class="activity-form-group">
+                    <label for="activityLocation">Location</label>
+                    <input type="text" id="activityLocation" name="location">
+                </div>
+                <div class="activity-form-group">
+                    <label for="activityCategory">Category</label>
+                    <select id="activityCategory" name="category" required>
+                        <option value="sightseeing">Sightseeing</option>
+                        <option value="dining">Dining</option>
+                        <option value="transport">Transport</option>
+                        <option value="accommodation">Accommodation</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="activity-form-group">
+                    <label for="activityStartTime">Start Time</label>
+                    <input type="datetime-local" id="activityStartTime" name="startTime" required>
+                </div>
+                <div class="activity-form-group">
+                    <label for="activityEndTime">End Time</label>
+                    <input type="datetime-local" id="activityEndTime" name="endTime" required>
+                </div>
+                <div class="activity-form-group">
+                    <label for="activityCost">Cost</label>
+                    <input type="number" id="activityCost" name="cost" min="0">
+                </div>
+                <div class="activity-form-group">
+                    <label for="activityNotes">Notes</label>
+                    <textarea id="activityNotes" name="notes"></textarea>
+                </div>
+                <div class="activity-form-buttons">
+                    <button type="button" id="cancelActivityBtn" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Activity</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
