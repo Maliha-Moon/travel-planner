@@ -142,6 +142,7 @@ const activityRoutes = require('./routes/activityRoutes');
 
 app.use('/api/auth', authRoutes);
 app.use('/api/trips', tripRoutes);
+app.use('/api/itinerary', itineraryRoutes);
 app.use('/api/trips/activities', activityRoutes);
 
 // Connect to MongoDB
