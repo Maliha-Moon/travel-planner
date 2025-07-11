@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Sphere - Profile</title>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/profile.css">
+</head>
+<body>
+    <!-- Include your existing header and navigation -->
+    <header class="header">
+        <!-- Your existing header content -->
+    </header>
+
+    <!-- Main Content -->
+    <main class="profile-container">
+        <!-- Profile Header -->
+        <section class="profile-header">
+            <div class="profile-image">
+                <img id="profilePicture" src="" alt="Profile Picture">
+                <button class="btn btn-primary" id="uploadPictureBtn">Upload Photo</button>
+            </div>
+            <div class="profile-info">
+                <h1 id="fullName">Loading...</h1>
+                <p id="bio" class="profile-bio">Loading...</p>
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="tripsCount">0</span>
+                        <span class="stat-label">Trips</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="destinationsCount">0</span>
+                        <span class="stat-label">Destinations</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Tabs -->
+        <nav class="profile-tabs">
+            <button class="tab-btn active" data-tab="preferences">Preferences</button>
+            <button class="tab-btn" data-tab="interests">Interests</button>
+            <button class="tab-btn" data-tab="destinations">Favorite Destinations</button>
+        </nav>
+
+        <!-- Preferences Tab Content -->
+        <section class="tab-content active" id="preferencesTab">
+            <h2>Travel Preferences</h2>
+            <div class="preferences-grid">
+                <div class="preference-section">
+                    <h3>Budget</h3>
+                    <select id="budgetPreference">
+                        <option value="budget">Budget</option>
+                        <option value="moderate">Moderate</option>
+                        <option value="luxury">Luxury</option>
+                    </select>
+                </div>
+                <div class="preference-section">
+                    <h3>Accommodation</h3>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" value="hostel"> Hostel</label>
+                        <label><input type="checkbox" value="hotel"> Hotel</label>
+                        <label><input type="checkbox" value="airbnb"> Airbnb</label>
+                        <label><input type="checkbox" value="camping"> Camping</label>
+                        <label><input type="checkbox" value="luxury"> Luxury</label>
+                    </div>
+                </div>
+                <div class="preference-section">
+                    <h3>Transportation</h3>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" value="bus"> Bus</label>
+                        <label><input type="checkbox" value="train"> Train</label>
+                        <label><input type="checkbox" value="flight"> Flight</label>
+                        <label><input type="checkbox" value="car"> Car</label>
+                        <label><input type="checkbox" value="bike"> Bike</label>
+                        <label><input type="checkbox" value="walk"> Walk</label>
+                    </div>
+                </div>
+                <div class="preference-section">
+                    <h3>Activities</h3>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" value="sightseeing"> Sightseeing</label>
+                        <label><input type="checkbox" value="adventure"> Adventure</label>
+                        <label><input type="checkbox" value="culture"> Culture</label>
+                        <label><input type="checkbox" value="food"> Food</label>
+                        <label><input type="checkbox" value="nature"> Nature</label>
+                        <label><input type="checkbox" value="shopping"> Shopping</label>
+                        <label><input type="checkbox" value="relaxation"> Relaxation</label>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary" id="savePreferences">Save Preferences</button>
+        </section>
+
+        <!-- Interests Tab Content -->
+        <section class="tab-content" id="interestsTab">
+            <h2>Interests</h2>
+            <div class="interests-grid">
+                <div class="interest-section">
+                    <label><input type="checkbox" value="history"> History</label>
+                    <label><input type="checkbox" value="architecture"> Architecture</label>
+                    <label><input type="checkbox" value="food"> Food</label>
+                    <label><input type="checkbox" value="nature"> Nature</label>
+                    <label><input type="checkbox" value="culture"> Culture</label>
+                    <label><input type="checkbox" value="art"> Art</label>
+                    <label><input type="checkbox" value="music"> Music</label>
+                    <label><input type="checkbox" value="sports"> Sports</label>
+                    <label><input type="checkbox" value="photography"> Photography</label>
+                    <label><input type="checkbox" value="wildlife"> Wildlife</label>
+                </div>
+            </div>
+            <button class="btn btn-primary" id="saveInterests">Save Interests</button>
+        </section>
+
+        <!-- Destinations Tab Content -->
+        <section class="tab-content" id="destinationsTab">
+            <h2>Favorite Destinations</h2>
+            <div class="destinations-list" id="destinationsList">
+                <!-- Destinations will be populated here -->
+            </div>
+            <div class="add-destination">
+                <h3>Add New Destination</h3>
+                <form id="addDestinationForm">
+                    <div class="form-group">
+                        <label for="destinationName">Name</label>
+                        <input type="text" id="destinationName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="destinationCountry">Country</label>
+                        <input type="text" id="destinationCountry" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="destinationDescription">Description</label>
+                        <textarea id="destinationDescription" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="destinationVisited">Visited?</label>
+                        <input type="checkbox" id="destinationVisited">
+                    </div>
+                    <div class="form-group">
+                        <label for="destinationRating">Rating (1-5)</label>
+                        <select id="destinationRating" required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Destination</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../scripts/apiUtils.js"></script>
+    <script src="../scripts/profileManager.js"></script>
+</body>
+</html>

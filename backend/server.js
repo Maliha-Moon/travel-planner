@@ -139,9 +139,11 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 const authRoutes = require('./routes/authRoutes');
 const tripRoutes = require('./routes/tripRoutes');
 const activityRoutes = require('./routes/activityRoutes');
+const profileRoutes = require('./routes/profileRoutes');
 
 app.use('/api/auth', authRoutes);
 app.use('/api/trips', tripRoutes);
+app.use('/api/profile', profileRoutes);
 app.use('/api/itinerary', itineraryRoutes);
 app.use('/api/trips/activities', activityRoutes);
 

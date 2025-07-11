@@ -20,9 +20,65 @@ const userSchema = new mongoose.Schema({
         required: true,
         minlength: 6
     },
-    createdAt: {
-        type: Date,
-        default: Date.now
+    profile: {
+        firstName: {
+            type: String,
+            trim: true
+        },
+        lastName: {
+            type: String,
+            trim: true
+        },
+        bio: {
+            type: String,
+            maxlength: 500
+        },
+        profilePicture: {
+            type: String,
+            default: ''
+        },
+        travelPreferences: {
+            budget: {
+                type: String,
+                enum: ['budget', 'moderate', 'luxury'],
+                default: 'moderate'
+            },
+            accommodation: [{
+                type: String,
+                enum: ['hostel', 'hotel', 'airbnb', 'camping', 'luxury'],
+                default: []
+            }],
+            transportation: [{
+                type: String,
+                enum: ['bus', 'train', 'flight', 'car', 'bike', 'walk'],
+                default: []
+            }],
+            activities: [{
+                type: String,
+                enum: ['sightseeing', 'adventure', 'culture', 'food', 'nature', 'shopping', 'relaxation'],
+                default: []
+            }]
+        },
+        interests: [{
+            type: String,
+            enum: ['history', 'architecture', 'food', 'nature', 'culture', 'art', 'music', 'sports', 'photography', 'wildlife'],
+            default: []
+        }],
+        favoriteDestinations: [{
+            name: String,
+            country: String,
+            description: String,
+            visited: Boolean,
+            rating: {
+                type: Number,
+                min: 1,
+                max: 5
+            }
+        }],
+        createdAt: {
+            type: Date,
+            default: Date.now
+        }
     }
 });
 
