@@ -1,0 +1,182 @@
+/* Trip Planning Styles */
+
+/* Activity Cards */
+.activity-card {
+    background: white;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.activity-card:hover {
+    transform: translateY(-2px);
+}
+
+.activity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.activity-time {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.activity-details {
+    margin-bottom: 12px;
+}
+
+.activity-meta {
+    display: flex;
+    gap: 12px;
+    color: #666;
+    font-size: 0.9em;
+}
+
+.category {
+    padding: 4px 8px;
+    background: #f0f0f0;
+    border-radius: 4px;
+}
+
+/* Expense Cards */
+.expense-card {
+    background: white;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.expense-card:hover {
+    transform: translateY(-2px);
+}
+
+.expense-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.expense-amount {
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+.expense-details {
+    display: flex;
+    gap: 12px;
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 12px;
+}
+
+/* Document Cards */
+.document-card {
+    background: white;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.document-card:hover {
+    transform: translateY(-2px);
+}
+
+.document-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.document-type {
+    padding: 4px 8px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    color: #666;
+}
+
+.document-details {
+    margin-bottom: 12px;
+}
+
+.upload-date {
+    color: #666;
+    font-size: 0.9em;
+}
+
+/* Action Buttons */
+.activity-actions,
+.expense-actions,
+.document-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-edit {
+    background: #f8f9fa;
+    color: #2c3e50;
+    border: 1px solid #ddd;
+}
+
+.btn-delete {
+    background: #f44336;
+    color: white;
+}
+
+.btn-view {
+    background: #2ecc71;
+    color: white;
+}
+
+/* Date Picker */
+#datePicker {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 200px;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 4px;
+    color: #2c3e50;
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .activity-card,
+    .expense-card,
+    .document-card {
+        margin: 8px 0;
+    }
+    
+    .activity-actions,
+    .expense-actions,
+    .document-actions {
+        flex-direction: column;
+        gap: 4px;
+    }
+}
