@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Sphere - Community</title>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/community.css">
+</head>
+<body>
+    <!-- Include your existing header and navigation -->
+    <header class="header">
+        <!-- Your existing header content -->
+    </header>
+
+    <!-- Main Content -->
+    <main class="community-container">
+        <!-- Community Sidebar -->
+        <aside class="community-sidebar">
+            <div class="search-section">
+                <input type="text" id="tipSearch" placeholder="Search tips...">
+                <select id="categoryFilter">
+                    <option value="">All Categories</option>
+                    <option value="general">General</option>
+                    <option value="packing">Packing</option>
+                    <option value="safety">Safety</option>
+                    <option value="budgeting">Budgeting</option>
+                    <option value="transport">Transport</option>
+                    <option value="accommodation">Accommodation</option>
+                    <option value="activities">Activities</option>
+                    <option value="food">Food</option>
+                    <option value="culture">Culture</option>
+                    <option value="health">Health</option>
+                </select>
+            </div>
+            <div class="trending-section">
+                <h3>Trending Categories</h3>
+                <div class="trending-tags">
+                    <span class="tag">#Packing</span>
+                    <span class="tag">#Budgeting</span>
+                    <span class="tag">#Safety</span>
+                    <span class="tag">#Food</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Community Feed -->
+        <section class="community-feed">
+            <!-- Create Tip Form -->
+            <div class="create-tip">
+                <h2>Share Your Travel Tip</h2>
+                <form id="createTipForm">
+                    <div class="form-group">
+                        <label for="tipTitle">Title</label>
+                        <input type="text" id="tipTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipContent">Content</label>
+                        <textarea id="tipContent" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipCategory">Category</label>
+                        <select id="tipCategory" required>
+                            <option value="">Select category</option>
+                            <option value="general">General</option>
+                            <option value="packing">Packing</option>
+                            <option value="safety">Safety</option>
+                            <option value="budgeting">Budgeting</option>
+                            <option value="transport">Transport</option>
+                            <option value="accommodation">Accommodation</option>
+                            <option value="activities">Activities</option>
+                            <option value="food">Food</option>
+                            <option value="culture">Culture</option>
+                            <option value="health">Health</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipTags">Tags</label>
+                        <input type="text" id="tipTags" placeholder="Enter tags separated by commas">
+                    </div>
+                    <button type="submit" class="btn-primary">Share Tip</button>
+                </form>
+            </div>
+
+            <!-- Feed Section -->
+            <div class="feed-section">
+                <div class="feed-header">
+                    <h2>Travel Tips Feed</h2>
+                    <div class="sort-options">
+                        <select id="sortBy">
+                            <option value="newest">Newest</option>
+                            <option value="popular">Popular</option>
+                            <option value="trending">Trending</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="tips-feed" id="tipsFeed">
+                    <!-- Tips will be populated here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../scripts/apiUtils.js"></script>
+    <script src="../scripts/communityManager.js"></script>
+</body>
+</html>

@@ -140,10 +140,12 @@ const authRoutes = require('./routes/authRoutes');
 const tripRoutes = require('./routes/tripRoutes');
 const activityRoutes = require('./routes/activityRoutes');
 const profileRoutes = require('./routes/profileRoutes');
+const socialRoutes = require('./routes/socialRoutes');
 
 app.use('/api/auth', authRoutes);
 app.use('/api/trips', tripRoutes);
 app.use('/api/profile', profileRoutes);
+app.use('/api/social', socialRoutes);
 app.use('/api/itinerary', itineraryRoutes);
 app.use('/api/trips/activities', activityRoutes);
 
