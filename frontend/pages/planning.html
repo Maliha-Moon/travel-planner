@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Sphere - Trip Planning</title>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/planning.css">
+</head>
+<body>
+    <!-- Include your existing header and navigation -->
+    <header class="header">
+        <!-- Your existing header content -->
+    </header>
+
+    <!-- Main Content -->
+    <main class="planning-container">
+        <!-- Budget Planning -->
+        <section class="budget-planning">
+            <h2>Budget Planning</h2>
+            <div class="budget-summary">
+                <div class="budget-card">
+                    <h3>Total Budget</h3>
+                    <div class="budget-amount">$<span id="totalBudget">0</span></div>
+                    <div class="budget-progress">
+                        <div class="progress-bar"></div>
+                    </div>
+                    <div class="budget-stats">
+                        <span>Spent: $<span id="spentAmount">0</span></span>
+                        <span>Remaining: $<span id="remainingAmount">0</span></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="budget-categories">
+                <h3>Category Breakdown</h3>
+                <div class="category-list" id="categoryList">
+                    <!-- Categories will be populated here -->
+                </div>
+                <button class="btn-primary" onclick="addBudgetCategory()">Add Category</button>
+            </div>
+
+            <div class="expenses-section">
+                <h3>Expenses</h3>
+                <div class="expenses-list" id="expensesList">
+                    <!-- Expenses will be populated here -->
+                </div>
+                <button class="btn-primary" onclick="addExpense()">Add Expense</button>
+            </div>
+        </section>
+
+        <!-- Packing List -->
+        <section class="packing-list">
+            <h2>Packing List</h2>
+            <div class="packing-list-section">
+                <div class="packing-categories">
+                    <h3>Categories</h3>
+                    <div class="category-list" id="packingCategories">
+                        <!-- Categories will be populated here -->
+                    </div>
+                    <button class="btn-primary" onclick="addPackingCategory()">Add Category</button>
+                </div>
+
+                <div class="items-list">
+                    <h3>Items</h3>
+                    <div class="items-grid" id="packingItems">
+                        <!-- Items will be populated here -->
+                    </div>
+                    <button class="btn-primary" onclick="addPackingItem()">Add Item</button>
+                </div>
+            </div>
+
+            <div class="checklist-section">
+                <h3>Packing Checklist</h3>
+                <div class="checklist-list" id="packingChecklist">
+                    <!-- Checklist items will be populated here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Travel Checklist -->
+        <section class="travel-checklist">
+            <h2>Travel Checklist</h2>
+            <div class="checklist-section">
+                <div class="checklist-categories">
+                    <h3>Categories</h3>
+                    <div class="category-list" id="checklistCategories">
+                        <!-- Categories will be populated here -->
+                    </div>
+                    <button class="btn-primary" onclick="addChecklistCategory()">Add Category</button>
+                </div>
+
+                <div class="items-list">
+                    <h3>Tasks</h3>
+                    <div class="items-grid" id="checklistItems">
+                        <!-- Tasks will be populated here -->
+                    </div>
+                    <button class="btn-primary" onclick="addChecklistItem()">Add Task</button>
+                </div>
+            </div>
+
+            <div class="reminders-section">
+                <h3>Reminders</h3>
+                <div class="reminders-list" id="remindersList">
+                    <!-- Reminders will be populated here -->
+                </div>
+                <button class="btn-primary" onclick="addReminder()">Add Reminder</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../scripts/apiUtils.js"></script>
+    <script src="../scripts/planningManager.js"></script>
+</body>
+</html>

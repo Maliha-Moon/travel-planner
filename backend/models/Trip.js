@@ -55,7 +55,79 @@ const TripSchema = new Schema({
         createdAt: { type: Date, default: Date.now }
     }],
     averageRating: { type: Number, default: 0 },
-    reviewCount: { type: Number, default: 0 }
+    reviewCount: { type: Number, default: 0 },
+    budget: {
+        totalBudget: { type: Number, default: 0 },
+        categories: [{
+            name: String,
+            allocatedAmount: Number,
+            spentAmount: Number,
+            percentage: Number
+        }],
+        expenses: [{
+            category: String,
+            description: String,
+            amount: Number,
+            date: Date,
+            notes: String
+        }],
+        currency: { type: String, default: 'USD' },
+        exchangeRate: Number
+    },
+    packingList: {
+        items: [{
+            name: String,
+            category: String,
+            quantity: Number,
+            packed: Boolean,
+            notes: String,
+            priority: { type: String, enum: ['high', 'medium', 'low'], default: 'medium' }
+        }],
+        categories: [{
+            name: String,
+            items: [String]
+        }],
+        checklist: [{
+            name: String,
+            completed: Boolean,
+            date: Date,
+            notes: String
+        }],
+        weatherBasedItems: [{
+            weatherCondition: String,
+            items: [String]
+        }],
+        destinationBasedItems: [{
+            destination: String,
+            items: [String]
+        }]
+    },
+    travelChecklist: {
+        items: [{
+            name: String,
+            category: String,
+            completed: Boolean,
+            dueDate: Date,
+            notes: String,
+            priority: { type: String, enum: ['high', 'medium', 'low'], default: 'medium' }
+        }],
+        categories: [{
+            name: String,
+            items: [String]
+        }],
+        progress: {
+            completed: Number,
+            total: Number,
+            percentage: Number
+        },
+        reminders: [{
+            name: String,
+            date: Date,
+            time: String,
+            notes: String,
+            notified: Boolean
+        }]
+    },
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now }
 });

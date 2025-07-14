@@ -136,16 +136,16 @@ app.post('/api/files/upload', async (req, res) => {
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Routes
-const authRoutes = require('./routes/authRoutes');
-const tripRoutes = require('./routes/tripRoutes');
 const activityRoutes = require('./routes/activityRoutes');
 const profileRoutes = require('./routes/profileRoutes');
 const socialRoutes = require('./routes/socialRoutes');
+const itineraryRoutes = require('./routes/itineraryRoutes');
 
-app.use('/api/auth', authRoutes);
-app.use('/api/trips', tripRoutes);
-app.use('/api/profile', profileRoutes);
-app.use('/api/social', socialRoutes);
+app.use('/auth', authRoutes);
+app.use('/trips', tripRoutes);
+app.use('/profile', profileRoutes);
+app.use('/social', socialRoutes);
+app.use('/planning', planningRoutes);
 app.use('/api/itinerary', itineraryRoutes);
 app.use('/api/trips/activities', activityRoutes);
 

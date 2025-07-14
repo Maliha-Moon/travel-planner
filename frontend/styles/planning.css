@@ -1,0 +1,328 @@
+/* Planning Styles */
+
+/* Planning Container */
+.planning-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Budget Planning */
+.budget-planning {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.budget-planning h2 {
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.budget-summary {
+    margin-bottom: 2rem;
+}
+
+.budget-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+.budget-card h3 {
+    margin-bottom: 1rem;
+    color: #666;
+}
+
+.budget-amount {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2ecc71;
+    margin-bottom: 1rem;
+}
+
+.progress-bar {
+    background: #e0e0e0;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar div {
+    height: 100%;
+    background: #2ecc71;
+    transition: width 0.3s;
+}
+
+.budget-stats {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Budget Categories */
+.budget-categories {
+    margin-bottom: 2rem;
+}
+
+.category-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.category-card {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+.category-card h4 {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.category-amount {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    color: #666;
+}
+
+.category-progress {
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.category-progress div {
+    height: 100%;
+    background: #2ecc71;
+    transition: width 0.3s;
+}
+
+/* Expenses Section */
+.expenses-section {
+    margin-top: 2rem;
+}
+
+.expenses-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.expense-card {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.expense-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    color: #666;
+}
+
+/* Packing List */
+.packing-list {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.packing-list-section {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Packing Categories */
+.packing-categories {
+    margin-bottom: 2rem;
+}
+
+/* Items List */
+.items-list {
+    margin-bottom: 2rem;
+}
+
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.item-card {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.item-card input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+.quantity {
+    color: #666;
+}
+
+.priority {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.priority.high {
+    background: #ff4757;
+    color: white;
+}
+
+.priority.medium {
+    background: #ffa502;
+    color: white;
+}
+
+.priority.low {
+    background: #2ecc71;
+    color: white;
+}
+
+/* Checklist Section */
+.checklist-section {
+    margin-bottom: 2rem;
+}
+
+.checklist-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.checklist-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 4px;
+}
+
+.date, .notes {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Travel Checklist */
+.travel-checklist {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.task-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    margin-bottom: 0.5rem;
+}
+
+.priority {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+/* Reminders Section */
+.reminders-section {
+    margin-top: 2rem;
+}
+
+.reminders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.reminder-card {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+.reminder-card h4 {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .planning-container {
+        grid-template-columns: 1fr;
+    }
+
+    .packing-list-section {
+        grid-template-columns: 1fr;
+    }
+
+    .budget-card {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .planning-container {
+        padding: 1rem;
+    }
+
+    .budget-summary {
+        margin-bottom: 1rem;
+    }
+
+    .budget-card {
+        padding: 0.75rem;
+    }
+
+    .budget-amount {
+        font-size: 1.5rem;
+    }
+
+    .task-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .category-card {
+        padding: 0.75rem;
+    }
+}
