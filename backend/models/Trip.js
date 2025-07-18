@@ -30,32 +30,20 @@ const ExpenseSchema = new Schema({
 
 const DocumentSchema = new Schema({
     title: { type: String, required: true },
-    type: { type: String, required: true },
-    fileUrl: { type: String, required: true },
-    notes: { type: String },
-    uploadedAt: { type: Date, default: Date.now }
 });
 
 const TripSchema = new Schema({
     title: { type: String, required: true },
-    description: { type: String },
+    description: { type: String, default: '' },
     startDate: { type: Date, required: true },
     endDate: { type: Date, required: true },
     destinations: [DestinationSchema],
     expenses: [ExpenseSchema],
     documents: [DocumentSchema],
-    totalCost: { type: Number, default: 0 },
-    status: { type: String, enum: ['planning', 'active', 'completed'], default: 'planning' },
-    userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-    sharedWith: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-    reviews: [{
-        userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-        rating: { type: Number, required: true, min: 1, max: 5 },
-        comment: { type: String, required: true },
-        createdAt: { type: Date, default: Date.now }
+    sharedWith: [{
+        userId: { type: Schema.Types.ObjectId, ref: 'User' },
+        sharedDate: { type: Date, default: Date.now }
     }],
-    averageRating: { type: Number, default: 0 },
-    reviewCount: { type: Number, default: 0 },
     budget: {
         totalBudget: { type: Number, default: 0 },
         categories: [{
@@ -128,26 +116,110 @@ const TripSchema = new Schema({
             notified: Boolean
         }]
     },
+    reviews: [{
+        userId: { type: Schema.Types.ObjectId, ref: 'User' },
+        rating: { type: Number, min: 1, max: 5 },
+        comment: String,
+        createdAt: { type: Date, default: Date.now }
+    }],
+    averageRating: { type: Number, default: 0 },
+    reviewCount: { type: Number, default: 0 },
+    integrations: {
+        flights: {
+            searchParams: {
+                origin: String,
+                destination: String,
+                departureDate: Date,
+                returnDate: Date,
+                passengers: {
+                    adults: Number,
+                    children: Number,
+                    infants: Number
+                },
+                cabinClass: { type: String, enum: ['economy', 'premium', 'business', 'first'] },
+                currency: String
+            },
+            results: [{
+                airline: String,
+                flightNumber: String,
+                departure: {
+                    airport: String,
+                    time: Date
+                },
+                arrival: {
+                    airport: String,
+                    time: Date
+                },
+                duration: String,
+                price: {
+                    amount: Number,
+                    currency: String
+                },
+                stops: Number,
+                bookingLink: String,
+                rating: Number
+            }]
+        },
+        hotels: {
+            searchParams: {
+                destination: String,
+                checkIn: Date,
+                checkOut: Date,
+                guests: Number,
+                rooms: Number,
+                amenities: [String],
+                priceRange: {
+                    min: Number,
+                    max: Number
+                },
+                rating: {
+                    min: Number,
+                    max: Number
+                }
+            },
+            results: [{
+                name: String,
+                address: String,
+                rating: Number,
+                price: {
+                    amount: Number,
+                    currency: String
+                },
+                amenities: [String],
+                distanceToCenter: Number,
+                photos: [String],
+                bookingLink: String,
+                availableRooms: Number
+            }]
+        },
+        insurance: {
+            recommendations: [{
+                provider: String,
+                coverageType: { type: String, enum: ['medical', 'trip_cancellation', 'baggage', 'emergency', 'comprehensive'] },
+                coverageAmount: Number,
+                price: {
+                    amount: Number,
+                    currency: String
+                },
+                features: [String],
+                rating: Number,
+                coverageDetails: {
+                    medical: Number,
+                    tripCancellation: Number,
+                    baggage: Number,
+                    emergencyEvacuation: Number,
+                    sportsCoverage: Boolean,
+                    adventureActivities: Boolean
+                },
+                bookingLink: String
+            }]
+        }
+    },
+    userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now }
-});
-
-// Calculate total cost for the trip
-TripSchema.pre('save', function(next) {
-    let total = 0;
-    
-    // Add destination costs
-    this.destinations.forEach(destination => {
-        total += destination.totalCost;
-    });
-    
-    // Add expense amounts
-    this.expenses.forEach(expense => {
-        total += expense.amount;
-    });
-    
-    this.totalCost = total;
-    next();
+}, {
+    timestamps: true
 });
 
 // Calculate total cost for each destination

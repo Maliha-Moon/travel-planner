@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Sphere - Integrations</title>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/integrations.css">
+</head>
+<body>
+    <!-- Include your existing header and navigation -->
+    <header class="header">
+        <!-- Your existing header content -->
+    </header>
+
+    <!-- Main Content -->
+    <main class="integrations-container">
+        <!-- Flight Search Section -->
+        <section class="flight-search">
+            <h2>Flight Search</h2>
+            <form id="flightSearchForm" class="search-form">
+                <div class="form-group">
+                    <label for="origin">From</label>
+                    <input type="text" id="origin" placeholder="Origin airport code">
+                </div>
+                <div class="form-group">
+                    <label for="destination">To</label>
+                    <input type="text" id="destination" placeholder="Destination airport code">
+                </div>
+                <div class="form-group">
+                    <label for="departure">Departure Date</label>
+                    <input type="date" id="departure">
+                </div>
+                <div class="form-group">
+                    <label for="return">Return Date</label>
+                    <input type="date" id="return">
+                </div>
+                <div class="form-group">
+                    <label>Passengers</label>
+                    <div class="passenger-inputs">
+                        <div>
+                            <label for="adults">Adults</label>
+                            <input type="number" id="adults" min="1" value="1">
+                        </div>
+                        <div>
+                            <label for="children">Children</label>
+                            <input type="number" id="children" min="0" value="0">
+                        </div>
+                        <div>
+                            <label for="infants">Infants</label>
+                            <input type="number" id="infants" min="0" value="0">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cabinClass">Cabin Class</label>
+                    <select id="cabinClass">
+                        <option value="economy">Economy</option>
+                        <option value="premium">Premium Economy</option>
+                        <option value="business">Business</option>
+                        <option value="first">First Class</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">Search Flights</button>
+            </form>
+            <div class="flight-results" id="flightResults">
+                <!-- Flight results will be populated here -->
+            </div>
+        </section>
+
+        <!-- Hotel Search Section -->
+        <section class="hotel-search">
+            <h2>Hotel Search</h2>
+            <form id="hotelSearchForm" class="search-form">
+                <div class="form-group">
+                    <label for="hotelDestination">Destination</label>
+                    <input type="text" id="hotelDestination" placeholder="City or hotel name">
+                </div>
+                <div class="form-group">
+                    <label for="hotelCheckIn">Check-in Date</label>
+                    <input type="date" id="hotelCheckIn">
+                </div>
+                <div class="form-group">
+                    <label for="hotelCheckOut">Check-out Date</label>
+                    <input type="date" id="hotelCheckOut">
+                </div>
+                <div class="form-group">
+                    <label>Guests</label>
+                    <input type="number" id="hotelGuests" min="1" value="1">
+                </div>
+                <div class="form-group">
+                    <label>Rooms</label>
+                    <input type="number" id="hotelRooms" min="1" value="1">
+                </div>
+                <div class="form-group">
+                    <label>Amenities</label>
+                    <div class="amenities-checkboxes">
+                        <label><input type="checkbox" value="wifi"> Free WiFi</label>
+                        <label><input type="checkbox" value="pool"> Pool</label>
+                        <label><input type="checkbox" value="parking"> Parking</label>
+                        <label><input type="checkbox" value="breakfast"> Breakfast</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Price Range ($)</label>
+                    <input type="number" id="hotelMinPrice" min="0" value="0">
+                    <span>to</span>
+                    <input type="number" id="hotelMaxPrice" min="0" value="1000">
+                </div>
+                <div class="form-group">
+                    <label>Rating</label>
+                    <input type="number" id="hotelMinRating" min="1" max="5" value="1">
+                    <span>to</span>
+                    <input type="number" id="hotelMaxRating" min="1" max="5" value="5">
+                </div>
+                <button type="submit" class="btn-primary">Search Hotels</button>
+            </form>
+            <div class="hotel-results" id="hotelResults">
+                <!-- Hotel results will be populated here -->
+            </div>
+        </section>
+
+        <!-- Insurance Recommendations Section -->
+        <section class="insurance-recommendations">
+            <h2>Travel Insurance Recommendations</h2>
+            <div class="insurance-filters">
+                <select id="coverageType">
+                    <option value="all">All Coverage Types</option>
+                    <option value="medical">Medical</option>
+                    <option value="trip_cancellation">Trip Cancellation</option>
+                    <option value="baggage">Baggage</option>
+                    <option value="emergency">Emergency</option>
+                    <option value="comprehensive">Comprehensive</option>
+                </select>
+                <select id="priceRange">
+                    <option value="all">All Price Ranges</option>
+                    <option value="low">$0 - $100</option>
+                    <option value="medium">$100 - $200</option>
+                    <option value="high">$200+</option>
+                </select>
+                <button class="btn-primary" onclick="getInsuranceRecommendations()">Get Recommendations</button>
+            </div>
+            <div class="insurance-results" id="insuranceResults">
+                <!-- Insurance recommendations will be populated here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../scripts/apiUtils.js"></script>
+    <script src="../scripts/integrationManager.js"></script>
+</body>
+</html>

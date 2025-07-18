@@ -146,6 +146,7 @@ app.use('/trips', tripRoutes);
 app.use('/profile', profileRoutes);
 app.use('/social', socialRoutes);
 app.use('/planning', planningRoutes);
+app.use('/integrations', integrationRoutes);
 app.use('/api/itinerary', itineraryRoutes);
 app.use('/api/trips/activities', activityRoutes);
 
